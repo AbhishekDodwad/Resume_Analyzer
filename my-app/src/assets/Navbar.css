@@ -1,0 +1,126 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    background: white;
+    padding: 15px 40px;
+    margin: 0;
+    /* remove browser default margin */
+    padding-left: 0;
+    /* remove browser default padding for ul */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.logo img {
+    height: 40px;
+    /* Adjust logo size */
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    /* reduced spacing for cleaner look */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    /* dark gray text for contrast */
+    display: block;
+    transition: all 0.3s ease;
+    padding: 4px 0;
+}
+
+.nav-left a {
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav-left a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background-color: #0077ff;
+    /* blue underline effect */
+    transition: width 0.3s ease;
+}
+
+.nav-left a:hover::after {
+    width: 100%;
+}
+
+.nav-left a.active {
+    color: #0077ff;
+    /* blue for active link */
+    font-weight: 600;
+}
+
+.nav-left a.active::after {
+    width: 100%;
+}
+
+.nav-right a {
+    padding: 6px 14px;
+    border-radius: 25px;
+    border: 2px solid #0077ff;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #0077ff;
+    background: transparent;
+}
+
+.nav-right.login a:hover {
+    background: #0077ff;
+    color: white;
+}
+
+.nav-right.signup a {
+    background: #0077ff;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-right.signup a:hover {
+    background: #005fcc;
+    border-color: #005fcc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .nav-left,
+    .nav-right {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .nav-right a {
+        width: 120px;
+    }
+}
