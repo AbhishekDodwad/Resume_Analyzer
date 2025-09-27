@@ -18,6 +18,7 @@
 - [⚡ Setup Instructions](#-setup-instructions)  
 - [📊 Example Output](#-example-output)  
 - [💡 Future Enhancements](#-future-enhancements)  
+- [📝 License](#-license)  
 
 ---
 
@@ -67,3 +68,61 @@ This way, candidates can **improve their resumes before applying**.
 ---
 
 ## 🏗️ Architecture
+```text
+User (React Frontend)
+        ⬇️ Resume + JD
+Spring Boot Backend (REST API)
+        ⬇️ Sends to AI
+Gemini API (AI Model)
+        ⬇️ JSON Response
+Backend (Spring Boot)
+        ⬇️
+Frontend (React) → Displays ATS Score, Skills, Suggestions
+
+
+📂 Project Structure
+ResumeAnalyzer/
+│── backend/ (Spring Boot)
+│   ├── Controller/
+│   ├── Service/
+│   ├── Model/
+│   └── Config/
+│
+│── frontend/ (React + Vite)
+│   ├── src/
+│   │   ├── components/
+│   │   └── App.jsx
+│
+│── README.md
+
+⚡ Setup Instructions
+🔹 Backend (Spring Boot)
+cd backend
+mvn clean install
+mvn spring-boot:run
+
+🔹 Frontend (React + Vite)
+cd frontend
+npm install
+npm run dev
+
+📊 Example Output
+{
+  "atsScore": 78,
+  "matchedSkills": ["Java", "Spring Boot", "REST APIs"],
+  "missingSkills": ["AWS", "Docker"],
+  "improvements": [
+    "Add AWS experience",
+    "Include DevOps tools like Docker/Kubernetes"
+  ]
+}
+
+💡 Future Enhancements
+
+🤖 Replace Gemini API with a custom ML model (Python + Scikit-learn / Transformers)
+
+📈 Add visual analytics (graphs & charts) for ATS score
+
+🌍 Deploy to AWS / GCP / Azure
+
+📂 Support for bulk resume analysis (HR recruiters)
