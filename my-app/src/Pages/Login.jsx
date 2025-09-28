@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FaEye, FaEyeSlash, FaUser, FaLock, FaRocket, FaGoogle, FaGithub } from 'react-icons/fa';
 import '../assets/Login.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Navbar from '../Components/Navbar';
 
 function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -17,10 +19,20 @@ function Login() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        console.log('Login attempt:', formData);
+        const response = await axios.post('http://localhost:8081/api/auth/login', formData, {
+            headers: { 'Content-Type': 'application/json' }
+        })
+        console.log('Server response:', response.data);
+        if (response.data.token !== null) {
+            <Navbar value={true} />
+            alert("Login Successful");
+            localStorage.setItem("token", response.data.token);
+            window.location.href = "/";
+        } else {
+            alert("Login Failed");
+        }
     };
 
     return (

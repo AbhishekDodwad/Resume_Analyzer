@@ -7,7 +7,7 @@ function Signup() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [formData, setFormData] = useState({
-        fullName: '',
+        userName: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -24,13 +24,19 @@ function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle signup logic here
         console.log('Signup attempt:', formData);
         try {
             const response = await axios.post('http://localhost:8081/api/register', formData, {
                 headers: { 'Content-Type': 'application/json' }
             }
             );
+            if (response.data == "User Registered Successfully") {
+                alert("Signup Successful");
+                window.location.href = "/login";
+            } else {
+                alert("Signup Failed");
+            }
+
             console.log('Server response:', response.data);
         } catch (error) {
             console.log('Error during signup:', error);
@@ -79,10 +85,10 @@ function Signup() {
                                 </label>
                                 <input
                                     type='text'
-                                    id='fullName'
-                                    name='fullName'
+                                    id='userName'
+                                    name='userName'
                                     placeholder='Enter your full name'
-                                    value={formData.fullName}
+                                    value={formData.userName}
                                     onChange={handleChange}
                                     required
                                 />

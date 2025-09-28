@@ -704,6 +704,38 @@ h2 {
     }
 }
 
+.restricted-wrapper {
+    position: relative;
+}
+
+.restricted-section {
+    position: relative;
+    z-index: 1;
+}
+
+.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.overlay-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #ff0d00;
+    z-index: 2;
+    /* makes overlay visible above blurred content */
+}
+
+
+
 @media (max-width: 480px) {
     .results-section {
         padding: 40px 15px;

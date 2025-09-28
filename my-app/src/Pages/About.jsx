@@ -2,11 +2,20 @@ import React from 'react';
 import '../assets/About.css';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
+import { Link, NavLink } from 'react-router-dom';
 
-function About() {
+function About({ isLoggedIn }) {
+    const handleClick = () => {
+        if (isLoggedIn) {
+            window.location.href = '/';
+        } else {
+            window.location.href = '/login';
+        }
+
+    }
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="about-container">
                 {/* Hero / Introduction */}
                 <section className="about-hero">
@@ -63,7 +72,8 @@ function About() {
                         Ready to see how your resume stacks up? Upload your resume along with the job description and
                         let <strong>HireLens</strong> guide you toward success!
                     </p>
-                    <button className="cta-button">Analyze My Resume</button>
+                    <button className="cta-button" onClick={handleClick}>Analyze My Resume</button>
+
                 </section>
             </div>
             <Footer />

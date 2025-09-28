@@ -22,7 +22,7 @@ public class RegisterController {
              return ResponseEntity.ok("User Registered Successfully");
         }
         catch (Exception e){
-            return ResponseEntity.badRequest().body("Registeration Failed"+e.getMessage());
+            return ResponseEntity.badRequest().body("Registration Failed"+e.getMessage());
         }
     }
 }

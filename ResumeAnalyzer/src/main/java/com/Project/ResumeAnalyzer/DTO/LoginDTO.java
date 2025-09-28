@@ -3,10 +3,12 @@ package com.Project.ResumeAnalyzer.DTO;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class LoginDTO {
 
 @NotEmpty(message = "The user should not be empty")
@@ -15,7 +17,7 @@ private String email;
 
 @NotEmpty(message = "The password should not be empty")
 private String password;
-@NotEmpty
-private String userName;
+//@NotEmpty
+//private String userName;
 
 }

@@ -4,7 +4,7 @@ import Navbar from '../Components/Navbar'
 function Contact() {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
         </div>
     )
 }
