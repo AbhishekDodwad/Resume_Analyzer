@@ -54,7 +54,7 @@ function Home({ isLoggedIn }) {
         formData.append("jdText", jdText);
 
         try {
-            const response = await axios.post("http://localhost:8081/api/analyze", formData, {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/analyze`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${localStorage.getItem("token")}`,

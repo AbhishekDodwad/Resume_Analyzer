@@ -20,7 +20,6 @@
     min-height: 900px;
 }
 
-/* Branding Section */
 .signup-branding {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -116,7 +115,6 @@
     opacity: 0.9;
 }
 
-/* Form Section */
 .signup-form-section {
     padding: 60px 40px;
     display: flex;
@@ -147,7 +145,6 @@
     font-size: 1rem;
 }
 
-/* Social Signup */
 .social-signup {
     display: flex;
     flex-direction: column;
@@ -190,7 +187,6 @@
     font-size: 1.1rem;
 }
 
-/* Divider */
 .divider {
     text-align: center;
     margin: 30px 0;
@@ -214,7 +210,6 @@
     font-size: 0.9rem;
 }
 
-/* Form Styles */
 .signup-form {
     margin-bottom: 30px;
 }
@@ -275,7 +270,6 @@
     color: #333;
 }
 
-/* Password Strength */
 .password-strength {
     margin-top: 10px;
 }
@@ -333,7 +327,6 @@
     color: #4CAF50;
 }
 
-/* Error Message */
 .error-message {
     color: #f44336;
     font-size: 0.8rem;
@@ -341,7 +334,6 @@
     display: block;
 }
 
-/* Terms Agreement */
 .form-options {
     margin-bottom: 30px;
 }
@@ -370,7 +362,6 @@
     text-decoration: underline;
 }
 
-/* Signup Button */
 .signup-btn {
     width: 100%;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -395,7 +386,6 @@
     transform: none;
 }
 
-/* Login Link */
 .login-link {
     text-align: center;
 }
@@ -416,7 +406,6 @@
     text-decoration: underline;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
     .signup-wrapper {
         grid-template-columns: 1fr;

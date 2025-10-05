@@ -23,7 +23,7 @@ public class LoginController {
                 LoginResponseDTO response = loginService.login(loginDTO);
                 return ResponseEntity.ok(response);
             }catch(Exception e){
-               return  ResponseEntity.badRequest().body("The give email id or password is not registered or Dosen't match");
+               return  ResponseEntity.badRequest().body("The given email id or password is not registered or Doesn't match");
             }
 
 

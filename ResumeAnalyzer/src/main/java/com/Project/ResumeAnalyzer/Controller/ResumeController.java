@@ -17,9 +17,9 @@ import java.security.Principal;
 @AllArgsConstructor
 public class ResumeController {
 
-    private final FileParserService fileParserService;
+    private  FileParserService fileParserService;
     //private final ResumeDBService resumeDBService;
-    private final GeminiService geminiService;
+    private  GeminiService geminiService;
 
     @PostMapping("/analyze")
     public AnalysisResult analysisResult(

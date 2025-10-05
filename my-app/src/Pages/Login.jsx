@@ -5,12 +5,17 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../Components/Navbar';
 
-function Login() {
+function Login({ isLoggedIn }) {
+    // console.log(`${process.env.React_APP_API_URL}/auth/login`)
+
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
+    if (isLoggedIn) {
+        window.location.href = '/';
+    }
 
     const handleChange = (e) => {
         setFormData({
@@ -21,7 +26,8 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await axios.post('http://localhost:8081/api/auth/login', formData, {
+
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, formData, {
             headers: { 'Content-Type': 'application/json' }
         })
         console.log('Server response:', response.data);
@@ -114,13 +120,13 @@ function Login() {
                                     </button>
                                 </div>
                             </div>
-
+                            {/* 
                             <div className='form-options'>
 
                                 <a href='#forgot' className='forgot-password'>
                                     Forgot password?
                                 </a>
-                            </div>
+                            </div> */}
 
                             <button type='submit' className='login-btn'>
                                 Sign In to HireLens

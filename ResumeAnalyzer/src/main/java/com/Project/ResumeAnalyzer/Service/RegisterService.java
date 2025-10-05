@@ -6,18 +6,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class RegisterService {
+
     @Autowired
-private ResumeRepository repo;
+    private ResumeRepository repo;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
-    public void register(ResumeEntity resumeEntity) {
-//       if(repo.findByEmail(resumeEntity.getEmail()) == null ){
-//             repo.save(resumeEntity);
-//       }
-        resumeEntity.setPassword(passwordEncoder.encode(resumeEntity.getPassword()));
-         repo.save(resumeEntity);
 
+    public String register(ResumeEntity resumeEntity) {
+        // Check if user already exists
+        Optional<ResumeEntity> existingUser = repo.findByEmail(resumeEntity.getEmail());
+
+        if (existingUser.isPresent()) {
+            return "User with this email already exists";
+        }
+
+        // Hash the password before saving
+        resumeEntity.setPassword(passwordEncoder.encode(resumeEntity.getPassword()));
+
+        // Save to MongoDB
+        repo.save(resumeEntity);
+
+        return "User registered successfully";
     }
 }

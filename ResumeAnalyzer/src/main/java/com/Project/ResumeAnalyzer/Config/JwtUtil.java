@@ -28,7 +28,7 @@ public String generateToken(String email){
             .signWith(getSigningKey(), SignatureAlgorithm.HS256)
             .compact();
 }
-
+    //cryptographic signing key.
 public String extractEmail(String token){
     return parseClaims(token).getSubject();
 }

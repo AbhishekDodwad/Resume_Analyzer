@@ -1,9 +1,13 @@
 package com.Project.ResumeAnalyzer.Repo;
 
 import com.Project.ResumeAnalyzer.Model.ResumeEntity;
-import jakarta.validation.constraints.Email;
-import org.springframework.data.jpa.repository.JpaRepository;
-public interface ResumeRepository extends JpaRepository<ResumeEntity,Integer>{
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-     ResumeEntity findByEmail(@Email String email);
+import java.util.Optional;
+
+@Repository
+public interface ResumeRepository extends MongoRepository<ResumeEntity, String> {
+
+    Optional<ResumeEntity> findByEmail(String email);
 }
