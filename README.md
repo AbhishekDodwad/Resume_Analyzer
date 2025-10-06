@@ -2,6 +2,8 @@
 
 A full-stack application for analyzing and managing resumes using AI-powered insights. Built with Spring Boot, MongoDB, and integrated with Google Gemini AI.
 
+check your ats score here : https://resume-analyzer-jade-zeta.vercel.app/
+
 ## 🚀 Features
 
 - 🔐 **User Authentication** - JWT-based secure login and registration
