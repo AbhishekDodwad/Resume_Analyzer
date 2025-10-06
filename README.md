@@ -159,18 +159,6 @@ GET /api/health
 }
 ```
 
-## 🔧 Configuration
-
-### Environment Variables for Production
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `SPRING_DATA_MONGODB_URI` | MongoDB connection string | `mongodb+srv://user:pass@cluster.mongodb.net/db` |
-| `JWT_SECRET` | Secret key for JWT tokens | `your_secret_key` |
-| `JWT_EXPIRATION` | Token expiration time (ms) | `360000` |
-| `GEMINI_API_KEY` | Google Gemini API key | `AIzaSy...` |
-| `FRONTEND_URL` | Frontend URL for CORS | `https://your-frontend.com` |
-
 ## 🚀 Deployment
 
 ### Deploy to Render
@@ -188,9 +176,7 @@ GET /api/health
 3. Whitelist IP addresses (0.0.0.0/0 for all IPs)
 4. Get connection string and add to environment variables
 
-## 🧪 Testing
-
-### Using cURL
+## Front end on vercel
 
 **Register:**
 ```bash
