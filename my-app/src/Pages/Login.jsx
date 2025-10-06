@@ -39,7 +39,7 @@ function Login({ isLoggedIn }) {
         setLoading(false);
         console.log('Server response:', response.data);
         if (response.data.token !== null) {
-            <Navbar value={true, response.} />
+            <Navbar value={true} />
             setMessage("Login Successful")
             // alert("Login Successful");
             localStorage.setItem("token", response.data.token);
