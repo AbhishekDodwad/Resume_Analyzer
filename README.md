@@ -235,34 +235,6 @@ resume-analyzer/
 - ✅ **CORS Configuration** - Controlled cross-origin access
 - ✅ **MongoDB Security** - Atlas network access control
 
-## 🐛 Troubleshooting
-
-### MongoDB Connection Issues
-
-**Problem:** `MongoSocketWriteException: SSLException`
-
-**Solution:**
-1. Check MongoDB Atlas network access (whitelist 0.0.0.0/0)
-2. Verify connection string uses `mongodb+srv://`
-3. Ensure database user has proper permissions
-
-### JWT Token Issues
-
-**Problem:** Token validation fails
-
-**Solution:**
-1. Verify `JWT_SECRET` matches between environments
-2. Check token expiration time
-3. Ensure proper token format in Authorization header
-
-### Docker Build Fails
-
-**Problem:** Out of memory during build
-
-**Solution:**
-```bash
-docker build --memory=4g -t resume-analyzer:latest .
-```
 
 ## 🤝 Contributing
 
@@ -291,7 +263,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For support, email abhishek@gmail.com or open an issue in the GitHub repository.
+For support, email dodwadabhishek@gmail.com or open an issue in the GitHub repository.
 
 ---
 
