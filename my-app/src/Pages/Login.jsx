@@ -11,6 +11,7 @@ function Login({ isLoggedIn }) {
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
+    const [response, setResponse] = useState("");
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -33,10 +34,12 @@ function Login({ isLoggedIn }) {
         const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, formData, {
             headers: { 'Content-Type': 'application/json' }
         })
+
+        setResponse(response.data);
         setLoading(false);
         console.log('Server response:', response.data);
         if (response.data.token !== null) {
-            <Navbar value={true} />
+            <Navbar value={true, response.} />
             setMessage("Login Successful")
             // alert("Login Successful");
             localStorage.setItem("token", response.data.token);
@@ -138,7 +141,7 @@ function Login({ isLoggedIn }) {
                                 {loading ? "Initializing server resources. This may take a short while. Please wait… " : "Sign In to HireLens"}
                             </button>
                             {loading && <div className='loader'></div>}
-                            {message && <p className='status-message' style={{ color: message.includes("Failed") ? "red" : "green" }}>{message}</p>}
+                            {response.message && <p className='status-message' style={{ color: message.includes("Failed") ? "red" : "green" }}>{response.message}</p>}
                         </form>
 
                         <div className='signup-link'>
